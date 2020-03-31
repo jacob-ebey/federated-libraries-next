@@ -1,5 +1,5 @@
 const glob = require('glob');
-// const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
+const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 
 module.exports = ({
   webpack: function(config) {
@@ -8,20 +8,20 @@ module.exports = ({
       use: "raw-loader"
     });
 
-    // config.plugins.push(new ModuleFederationPlugin({
-    //   name: 'federated_libraries',
-    //   library: { type: 'var', name: 'federated_libraries' },
-    //   filename: 'remoteEntry.js',
-    //   exposes: {
-    //     AppShell: './components/app-shell',
-    //     ArticlePage: './components/article-page',
-    //     Hero: './components/hero',
-    //   },
-    //   shared: ['react', 'react-dom', 'next'],
-    // }));
+    config.plugins.push(new ModuleFederationPlugin({
+      name: 'federated_libraries',
+      library: { type: 'var', name: 'federated_libraries' },
+      filename: 'remoteEntry.js',
+      exposes: {
+        AppShell: './components/app-shell',
+        ArticlePage: './components/article-page',
+        Hero: './components/hero',
+      },
+      shared: ['react', 'react-dom'],
+    }));
 
-    // config.resolve.alias.buffer = 'buffer';
-    // config.resolve.alias.path = 'path-browserify';
+    config.resolve.alias.buffer = 'buffer';
+    config.resolve.alias.path = 'path-browserify';
 
     return config;
   },
