@@ -23,7 +23,7 @@ export default function BlogPage ({ posts }) {
   return (
     <>
       <Head>
-        <title>Blog | {config.title}</title>
+        <title>The Federated Blog | {config.title}</title>
       </Head>
 
       <AppShell
