@@ -23,7 +23,7 @@ export default function BlogTemplate(props) {
   const frontmatter = props.data
 
   const body = compile(markdownBody);
-console.log(props)
+  console.log(frontmatter);
   return (
     <ArticlePage
       menuItems={navItems.menuItems}
@@ -40,7 +40,7 @@ console.log(props)
 
 BlogTemplate.getInitialProps = async function(ctx) {
   const { slug } = ctx.query
-  const content = await import(`../../posts/${slug}.md`)
+  const content = await import(`../../videos/${slug}.md`)
   const config = await import(`../../data/config.json`)
   const data = matter(content.default);
   return {
