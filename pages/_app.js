@@ -6,11 +6,10 @@ import 'semantic-ui-css/semantic.min.css';
 
 import config from '../data/config.json'
 import '../styles/bootstrap.css';
-const tracking = `<!-- Global site tag (gtag.js) - Google Analytics -->
+const tracking = `
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-120967034-1');
 `
 function MyApp({ Component, pageProps }) {
